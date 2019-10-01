@@ -1,0 +1,13 @@
+C:\Users\nirrr\source\repos\ChatGuBetter\bin\Debug\ChatGuBetter.exe.config
+C:\Users\nirrr\source\repos\ChatGuBetter\bin\Debug\ChatGuBetter.exe
+C:\Users\nirrr\source\repos\ChatGuBetter\bin\Debug\ChatGuBetter.pdb
+C:\Users\nirrr\source\repos\ChatGuBetter\obj\Debug\ChatGuBetter.csprojAssemblyReference.cache
+C:\Users\nirrr\source\repos\ChatGuBetter\obj\Debug\ChatGuBetter.Form1.resources
+C:\Users\nirrr\source\repos\ChatGuBetter\obj\Debug\ChatGuBetter.Properties.Resources.resources
+C:\Users\nirrr\source\repos\ChatGuBetter\obj\Debug\ChatGuBetter.csproj.GenerateResource.cache
+C:\Users\nirrr\source\repos\ChatGuBetter\obj\Debug\ChatGuBetter.csproj.CoreCompileInputs.cache
+C:\Users\nirrr\source\repos\ChatGuBetter\obj\Debug\ChatGuBetter.exe
+C:\Users\nirrr\source\repos\ChatGuBetter\obj\Debug\ChatGuBetter.pdb
+C:\Users\nirrr\source\repos\ChatGuBetter\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nirrr\source\repos\ChatGuBetter\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nirrr\source\repos\ChatGuBetter\obj\Debug\ChatGuBetter.csproj.CopyComplete
