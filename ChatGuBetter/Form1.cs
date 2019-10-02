@@ -12,15 +12,15 @@ using System.Windows.Forms;
 
 namespace ChatGuBetter
 {
-    public partial class Form1 : Form
-    {
-        String path = "D:\\AllianceDivision\\message_1.json";
-        JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\message_1.json"));
-        Dictionary<string, List<String>> mainDict;
-        Dictionary<int, string[]> clickableMsg;
+    public partial class Form1 : Form{
 
-        public Form1()
-        {
+        String path = "D:\\AllianceDivision\\message_1.json";
+       // JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\message_1.json"));
+        JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\DiscordBot\\ADChatjavaGUI\\message_1.json"));
+        Dictionary<string, List<String>> mainDict;
+        Dictionary<string, List<int>> NameId;
+
+        public Form1(){
             InitializeComponent();
         }
 
@@ -42,7 +42,7 @@ namespace ChatGuBetter
 
             ClearPanel(BigPanel);
             mainDict = new Dictionary<string, List<String>>();
-            clickableMsg = new Dictionary<int, string[]>();
+            NameId = new Dictionary<string, List<int>>();
             int index = 0;
             foreach (var msg in o1["messages"]){
                 if (msg.ToString().Contains("content")) {
@@ -53,15 +53,11 @@ namespace ChatGuBetter
                         String name = msg["sender_name"].ToString();
 
                         if (!mainDict.ContainsKey(name)) {
-                            mainDict.Add(name, new List<String>());   
+                            mainDict.Add(name, new List<String>());
+                            NameId.Add(name, new List<int>());
                         }
                         mainDict[name].Add(content);
-                        if (selected != null) {
-                            if(selected == name)
-                                clickableMsg.Add(index, new string[]{content, name });
-                        }
-                        else
-                            clickableMsg.Add(index, new string[] { content, name });
+                        NameId[name].Add(index);
                     }
                 }
                 index++;
@@ -75,10 +71,16 @@ namespace ChatGuBetter
                 }
             }
 
+            if (mainDict.Count == 0) {
+                NowReadingLab.Text = "No one has said "+term;
+                NowReadingLab.Visible = true;
+                return;
+
+            }
+
             if ((selected != null && selected != "None") && !mainDict.ContainsKey(selected) ) {
                 NowReadingLab.Text = selected + " has never said " + term;
                 NowReadingLab.Visible = true;
-                clickableMsg.Clear();
                 return;
             }
            
@@ -95,16 +97,14 @@ namespace ChatGuBetter
                 }
             }
             else {
-                foreach (int key in clickableMsg.Keys.ToList()) {
-                    if (!clickableMsg[key][1].Equals(selected)) {
-                        clickableMsg.Remove(key);
-                    }
-                }
                 string firstname = selected.Substring(0, selected.IndexOf(' '));
                 NowReadingLab.Text = "Now reading messages from " + firstname;
                 NowReadingLab.Visible = true;
-                foreach (string msg in mainDict[selected]) {
-                    Label temp = new Label();
+                //foreach (string msg in mainDict[selected]) {
+                for(int i =0; i<mainDict[selected].Count; i++) {
+                    string msg = mainDict[selected][i];
+                    Label2 temp = new Label2();
+                    temp.Set(NameId[selected][i]);
                     temp.Text = msg;
                     temp.AutoSize = true;
                     temp.Font = new System.Drawing.Font(temp.Font.Name, 10);
@@ -117,20 +117,12 @@ namespace ChatGuBetter
 
         public void ContextMsg_Click(object sender, EventArgs e) {
             NowReadingLab.Text = "Now reading context messages";
-            Label LabMsg = (Label)sender;
+            Label2 LabMsg = (Label2)sender;
             String term = LabMsg.Text;
             ClearPanel(BigPanel);
             List<String[]> msgList = new List<String[]>();
-            int index = -1;
+            int index = LabMsg.GetId();
            
-            foreach (int num in clickableMsg.Keys) {
-                if (clickableMsg[num][0].Equals(term)) {
-                    index = num;
-                    break;
-                }
-            }
-            clickableMsg.Clear();
-
             Label scrollTarget = null;
             for (int i = index + 15; i >= index - 15; i--){
                 var msgObj = o1["messages"][i];
@@ -139,10 +131,9 @@ namespace ChatGuBetter
                     string msg = msgObj["content"].ToString();
                     string name = msgObj["sender_name"].ToString();
 
-                    clickableMsg.Add(i, new string[] { msg, name });
-
                     Label tempName = new Label() { Text = name+":", AutoSize = true, Font = new System.Drawing.Font(Font.Name, 10) };
-                    Label tempMsg = new Label{Text = msg, AutoSize = true, Font = new System.Drawing.Font(Font.Name, 10)};
+                    Label2 tempMsg = new Label2{Text = msg, AutoSize = true, Font = new System.Drawing.Font(Font.Name, 10)};
+                    tempMsg.Set(i);
                     tempMsg.DoubleClick += new EventHandler(ContextMsg_Click);
                     if (i == index){
                         tempName.ForeColor = System.Drawing.Color.Red;
@@ -195,5 +186,25 @@ namespace ChatGuBetter
         {
 
         }
+
+        private void EmojiBtn_Click(object sender, EventArgs e)
+        {
+            Form2 f2 = new Form2();
+            this.Hide();
+            f2.ShowDialog();
+            this.Dispose();
+            this.Close();
+        }
+    }
+
+    public class Label2 : Label {
+        int num;
+        public int GetId() {
+            return num;
+        }
+        public void Set(int num) {
+            this.num = num;
+        }
+
     }
 }
