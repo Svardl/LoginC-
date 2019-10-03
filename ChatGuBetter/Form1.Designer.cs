@@ -35,26 +35,26 @@
             this.BigPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.NowReadingLab = new System.Windows.Forms.Label();
             this.EmojiBtn = new System.Windows.Forms.Button();
+            this.SearchAll = new System.Windows.Forms.CheckBox();
+            this.ShowDatesCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(267, 182);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Location = new System.Drawing.Point(237, 146);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(309, 31);
+            this.textBox1.Size = new System.Drawing.Size(275, 27);
             this.textBox1.TabIndex = 0;
             // 
             // SearchBtn
             // 
             this.SearchBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBtn.Location = new System.Drawing.Point(611, 178);
-            this.SearchBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SearchBtn.Location = new System.Drawing.Point(543, 142);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(99, 45);
+            this.SearchBtn.Size = new System.Drawing.Size(88, 36);
             this.SearchBtn.TabIndex = 1;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
@@ -65,19 +65,18 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(259, 64);
+            this.label1.Location = new System.Drawing.Point(230, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(441, 46);
+            this.label1.Size = new System.Drawing.Size(361, 38);
             this.label1.TabIndex = 2;
             this.label1.Text = "Alliance Divison Search";
             // 
             // ButtonPanel
             // 
             this.ButtonPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonPanel.Location = new System.Drawing.Point(10, 230);
-            this.ButtonPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonPanel.Location = new System.Drawing.Point(9, 184);
             this.ButtonPanel.Name = "ButtonPanel";
-            this.ButtonPanel.Size = new System.Drawing.Size(917, 80);
+            this.ButtonPanel.Size = new System.Drawing.Size(815, 83);
             this.ButtonPanel.TabIndex = 3;
             // 
             // BigPanel
@@ -86,11 +85,11 @@
             this.BigPanel.AutoScroll = true;
             this.BigPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BigPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.BigPanel.Location = new System.Drawing.Point(10, 423);
-            this.BigPanel.Margin = new System.Windows.Forms.Padding(3, 25, 3, 25);
+            this.BigPanel.Location = new System.Drawing.Point(9, 338);
+            this.BigPanel.Margin = new System.Windows.Forms.Padding(3, 20, 3, 20);
             this.BigPanel.Name = "BigPanel";
-            this.BigPanel.Padding = new System.Windows.Forms.Padding(0, 0, 11, 0);
-            this.BigPanel.Size = new System.Drawing.Size(924, 550);
+            this.BigPanel.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.BigPanel.Size = new System.Drawing.Size(821, 543);
             this.BigPanel.TabIndex = 4;
             this.BigPanel.WrapContents = false;
             // 
@@ -99,9 +98,9 @@
             this.NowReadingLab.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.NowReadingLab.AutoSize = true;
             this.NowReadingLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NowReadingLab.Location = new System.Drawing.Point(127, 337);
+            this.NowReadingLab.Location = new System.Drawing.Point(113, 270);
             this.NowReadingLab.Name = "NowReadingLab";
-            this.NowReadingLab.Size = new System.Drawing.Size(583, 40);
+            this.NowReadingLab.Size = new System.Drawing.Size(481, 36);
             this.NowReadingLab.TabIndex = 5;
             this.NowReadingLab.Text = "Now reading messages from Niclas";
             this.NowReadingLab.Click += new System.EventHandler(this.NowReadingLab_Click);
@@ -110,21 +109,48 @@
             // 
             this.EmojiBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmojiBtn.ForeColor = System.Drawing.Color.Green;
-            this.EmojiBtn.Location = new System.Drawing.Point(44, 45);
+            this.EmojiBtn.Location = new System.Drawing.Point(39, 36);
+            this.EmojiBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EmojiBtn.Name = "EmojiBtn";
-            this.EmojiBtn.Size = new System.Drawing.Size(112, 45);
+            this.EmojiBtn.Size = new System.Drawing.Size(100, 36);
             this.EmojiBtn.TabIndex = 6;
             this.EmojiBtn.Text = "Reactions";
             this.EmojiBtn.UseVisualStyleBackColor = true;
             this.EmojiBtn.Click += new System.EventHandler(this.EmojiBtn_Click);
             // 
+            // SearchAll
+            // 
+            this.SearchAll.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SearchAll.AutoSize = true;
+            this.SearchAll.Location = new System.Drawing.Point(700, 67);
+            this.SearchAll.Name = "SearchAll";
+            this.SearchAll.Size = new System.Drawing.Size(94, 21);
+            this.SearchAll.TabIndex = 7;
+            this.SearchAll.Text = "Search All";
+            this.SearchAll.UseVisualStyleBackColor = true;
+            this.SearchAll.CheckedChanged += new System.EventHandler(this.SearchAll_CheckedChanged);
+            // 
+            // ShowDatesCheck
+            // 
+            this.ShowDatesCheck.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ShowDatesCheck.AutoSize = true;
+            this.ShowDatesCheck.Location = new System.Drawing.Point(679, 285);
+            this.ShowDatesCheck.Name = "ShowDatesCheck";
+            this.ShowDatesCheck.Size = new System.Drawing.Size(105, 21);
+            this.ShowDatesCheck.TabIndex = 8;
+            this.ShowDatesCheck.Text = "Show Dates";
+            this.ShowDatesCheck.UseVisualStyleBackColor = true;
+            this.ShowDatesCheck.CheckedChanged += new System.EventHandler(this.ShowDatesCheck_CheckedChanged);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(930, 971);
+            this.ClientSize = new System.Drawing.Size(827, 896);
+            this.Controls.Add(this.ShowDatesCheck);
+            this.Controls.Add(this.SearchAll);
             this.Controls.Add(this.EmojiBtn);
             this.Controls.Add(this.NowReadingLab);
             this.Controls.Add(this.BigPanel);
@@ -132,7 +158,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -151,6 +176,8 @@
         private System.Windows.Forms.FlowLayoutPanel BigPanel;
         private System.Windows.Forms.Label NowReadingLab;
         private System.Windows.Forms.Button EmojiBtn;
+        private System.Windows.Forms.CheckBox SearchAll;
+        private System.Windows.Forms.CheckBox ShowDatesCheck;
     }
 }
 
