@@ -1,0 +1,11 @@
+C:\Users\nirrr\source\repos\reactionCount\bin\Debug\netcoreapp2.2\reactionCount.deps.json
+C:\Users\nirrr\source\repos\reactionCount\bin\Debug\netcoreapp2.2\reactionCount.runtimeconfig.json
+C:\Users\nirrr\source\repos\reactionCount\bin\Debug\netcoreapp2.2\reactionCount.runtimeconfig.dev.json
+C:\Users\nirrr\source\repos\reactionCount\bin\Debug\netcoreapp2.2\reactionCount.dll
+C:\Users\nirrr\source\repos\reactionCount\obj\Debug\netcoreapp2.2\reactionCount.csprojAssemblyReference.cache
+C:\Users\nirrr\source\repos\reactionCount\obj\Debug\netcoreapp2.2\reactionCount.csproj.CoreCompileInputs.cache
+C:\Users\nirrr\source\repos\reactionCount\obj\Debug\netcoreapp2.2\reactionCount.AssemblyInfoInputs.cache
+C:\Users\nirrr\source\repos\reactionCount\obj\Debug\netcoreapp2.2\reactionCount.AssemblyInfo.cs
+C:\Users\nirrr\source\repos\reactionCount\bin\Debug\netcoreapp2.2\reactionCount.pdb
+C:\Users\nirrr\source\repos\reactionCount\obj\Debug\netcoreapp2.2\reactionCount.dll
+C:\Users\nirrr\source\repos\reactionCount\obj\Debug\netcoreapp2.2\reactionCount.pdb
