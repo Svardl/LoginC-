@@ -33,6 +33,11 @@ namespace ChatGuBetter
             this.AutoSize = true;
 
             this.Controls.Add(panel);
+
+            pb.Click += (object sender, EventArgs e) => {
+                this.Visible = false;
+                this.Dispose();
+            };
         }
     }
 }

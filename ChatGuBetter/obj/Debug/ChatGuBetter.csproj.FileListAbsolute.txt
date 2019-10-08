@@ -45,3 +45,11 @@ C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.csproj.ResolveComReference.cache
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.VideoForm.resources
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\bin\Debug\Interop.WMPLib.dll
+C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\bin\Debug\Interop.WMPLib.dll
+C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\Interop.WMPLib.dll
+C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.csproj.ResolveComReference.cache
+C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.PictureForm.resources
+C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.VideoForm.resources
+C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.ImageDisplay.resources

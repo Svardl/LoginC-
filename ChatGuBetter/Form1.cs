@@ -18,30 +18,45 @@ namespace ChatGuBetter
 {
     public partial class Form1 : Form{
 
-        String path = "D:\\AllianceDivision\\Big-search\\";
-        JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\Big-search\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
-        //JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\DiscordBot\\ADChatjavaGUI\\message_1.json"));
+        //String path = "D:\\AllianceDivision\\Big-search\\";
+        string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
+        //JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\Big-search\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
+        JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\ChatguiResources\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
         Dictionary<string, List<String>> mainDict;
         Dictionary<string, List<int>> NameId;
 
         double Sheight;
+        Dictionary<String, Color> colorMap; 
 
         public Form1(){
             InitializeComponent();
             Sheight = SystemParameters.FullPrimaryScreenHeight;
+
         }
 
         private void Form1_Load(object sender, EventArgs e){
             AcceptButton = SearchBtn;
             NowReadingLab.Visible = false;
             CreateButtons();
+            colorMap = SetupColors();
+        }
+
+        public Dictionary<String, Color> SetupColors() {
+            Random rand = new Random();
+            Dictionary<String, Color > nameColor = new Dictionary<string, Color>();
+            foreach (string name in o1["participants"]) { 
+                Color col = Color.FromArgb(rand.Next(0, 256), rand.Next(0, 256), rand.Next(0, 256));
+                nameColor.Add(name, col);   
+            }
+            return nameColor;
+
         }
         public void CreateButtons() {
-            var participant = o1["participants"];
-            foreach (var person in participant) {
-                ButtonPanel.Controls.Add(new RadioButton() { Text = person["name"].ToString(), AutoSize = true });
-            }
-            ButtonPanel.Controls.Add(new RadioButton() { Text = "None", AutoSize = true });
+        var participant = o1["participants"];
+        foreach (var person in participant) {
+            ButtonPanel.Controls.Add(new RadioButton() { Text = person["name"].ToString(), AutoSize = true });
+        }
+        ButtonPanel.Controls.Add(new RadioButton() { Text = "None", AutoSize = true });
         }
         public void DoSearch(String term, string selected=null) {
             if (term  == "" && !SearchAll.Checked)
@@ -53,8 +68,13 @@ namespace ChatGuBetter
             Dictionary<string, List<string>> TimeStamp = new Dictionary<string, List<string>>();
             int index = 0;
             foreach (var msg in o1["messages"]){
-                if (msg.ToString().Contains("content") || SearchAll.Checked) {
+                if (msg.ToString().Contains("content") || SearchAll.Checked || msg["share"]!=null) {
                     String content = msg.ToString().Contains("content") ? msg["content"].ToString() :  "!!Click to view media!!"  ;
+                    if (msg["share"] != null) {
+                        if(msg["share"]["link"]!=null)
+                            content = msg["share"]["link"].ToString();
+                    }
+                    
                     String pattern = @"\b" + term.ToLower() + @"\b";
 
                     if (System.Text.RegularExpressions.Regex.IsMatch(content.ToLower(), pattern)){
@@ -101,11 +121,12 @@ namespace ChatGuBetter
                 List<string> sorted = GetOrder(mainDict);
 
                 foreach (string name in sorted) {
-                    Label temp = new Label();
-                    temp.Text = name + " said " + term +" "+ mainDict[name].Count + " times";
-                    temp.AutoSize = true;
-                    temp.Font = new System.Drawing.Font(temp.Font.Name, 10);
-                    temp.DoubleClick += new EventHandler(Label_Click);
+                    Label temp = new Label {
+                        Text = name + " said " + term + " " + mainDict[name].Count + " times", AutoSize = true,
+                        Font = new System.Drawing.Font(Font.Name, 10)
+                };
+                    
+                    temp.Click += new EventHandler(Label_Click);
                     BigPanel.Controls.Add(temp);
                     BigPanel.Controls.Add(new Label());
                 }
@@ -219,7 +240,7 @@ namespace ChatGuBetter
         private void SearchBtn_Click(object sender, EventArgs e){
             DoSearch(textBox1.Text);
         }
-        public void ClearPanel(FlowLayoutPanel panel) {
+        public static void ClearPanel(FlowLayoutPanel panel) {
             List<Control> listControls = panel.Controls.Cast<Control>().ToList();
             foreach (Control control in listControls){
                 panel.Controls.Remove(control);
@@ -275,7 +296,7 @@ namespace ChatGuBetter
 
         private void EmojiBtn_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2();
+            Form2 f2 = new Form2(o1);
             this.Hide();
             f2.ShowDialog();
             this.Dispose();
@@ -348,6 +369,15 @@ namespace ChatGuBetter
 
                 }
             }
+        }
+
+        private void DisplayImageBtn_Click(object sender, EventArgs e) {
+            ImageDisplay ImD = new ImageDisplay(o1);
+            this.Hide();
+            ImD.ShowDialog();
+            this.Close();
+            this.Dispose();
+
         }
     }
 

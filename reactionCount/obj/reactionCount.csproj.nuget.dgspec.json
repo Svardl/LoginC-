@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nirrr\\source\\repos\\reactionCount\\reactionCount.csproj": {}
+    "C:\\Users\\Svardl\\Documents\\LoginC-\\reactionCount\\reactionCount.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nirrr\\source\\repos\\reactionCount\\reactionCount.csproj": {
+    "C:\\Users\\Svardl\\Documents\\LoginC-\\reactionCount\\reactionCount.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nirrr\\source\\repos\\reactionCount\\reactionCount.csproj",
+        "projectUniqueName": "C:\\Users\\Svardl\\Documents\\LoginC-\\reactionCount\\reactionCount.csproj",
         "projectName": "reactionCount",
-        "projectPath": "C:\\Users\\nirrr\\source\\repos\\reactionCount\\reactionCount.csproj",
-        "packagesPath": "C:\\Users\\nirrr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nirrr\\source\\repos\\reactionCount\\obj\\",
+        "projectPath": "C:\\Users\\Svardl\\Documents\\LoginC-\\reactionCount\\reactionCount.csproj",
+        "packagesPath": "C:\\Users\\Svardl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Svardl\\Documents\\LoginC-\\reactionCount\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\nirrr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Svardl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -53,10 +50,16 @@
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
