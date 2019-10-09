@@ -12,11 +12,13 @@ namespace ChatGuBetter {
 
         JObject o1;
         PictureForm pf;
-        string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
+        //string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
+        string path;
         string[] emojiNames = new string[] { "Shocked emoji", "Grinning Squinting Face", "Heart eyes emoji", "Crying Face", "Eyes", "Angry Face", "Thumbs Up", "Thumbs Down" };
         bool clicked;
-        public Form2(JObject o1) {
+        public Form2(JObject o1, string path) {
             this.o1 = o1;
+            this.path = path;
             InitializeComponent();
             foreach (string name in emojiNames) {
                 CheckBox cb = new CheckBox();

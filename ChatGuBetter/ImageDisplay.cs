@@ -12,14 +12,19 @@ using System.Windows.Forms;
 
 namespace ChatGuBetter {
     public partial class ImageDisplay : Form {
-        string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
+        string path;
         int height = Screen.PrimaryScreen.WorkingArea.Height;
+        int count = 0;
+        bool canPass = true;
 
-        public ImageDisplay(JObject o1) {
+        public ImageDisplay(JObject o1,string path) {
             InitializeComponent();
             int width = Screen.PrimaryScreen.WorkingArea.Width;
             int height = Screen.PrimaryScreen.WorkingArea.Height;
-            
+            this.path = path;
+
+            this.KeyDown += new KeyEventHandler(KeyDownfunc);
+
             SentFromLabel.Visible = false;
             StartImageDisplay(o1);
         }
@@ -40,25 +45,42 @@ namespace ChatGuBetter {
             imStore = imStore.OrderBy(x => Guid.NewGuid()).ToList();
 
             SentFromLabel.Visible = true;
-            foreach (string[] nameImage in imStore) {
+            while (count < imStore.Count) {
 
-                SentFromLabel.Text = nameImage[0];
-                string imPath = path + nameImage[1];
+                SentFromLabel.Text = imStore[count][0];
+                string imPath = path + imStore[count][1];
                 System.Drawing.Image img = System.Drawing.Image.FromFile(imPath);
 
-                if (img.Height > height) {
+                double currHeight = img.Height;
+                double currWidth = img.Width;
 
-                    DisplayBox.Width = Convert.ToInt32(img.Width / 1.4);
-                    DisplayBox.Height = Convert.ToInt32(img.Width / 1.4);
+                while (currHeight > height-30) {
+                    currHeight /= 1.2;
+                    currWidth /= 1.2;
                 }
-                else {
-                    DisplayBox.Width = img.Width;
-                    DisplayBox.Height = img.Height;
-                }
+                
+                DisplayBox.Width = (int)currWidth;
+                DisplayBox.Height = (int)currHeight;
                 DisplayBox.Image = img;
+             
                 await Task.Delay(4000);
 
+                incrementCount(false);
 
+            }
+        }
+        public void KeyDownfunc(Object o, KeyEventArgs e) {
+            MessageBox.Show(e.KeyCode.ToString());
+
+        }
+        public void incrementCount(bool valid) {
+
+
+            if (valid || canPass) {
+                count++;
+            }
+            else {
+                canPass = true;
             }
         }
     }
