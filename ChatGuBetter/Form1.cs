@@ -44,9 +44,9 @@ namespace ChatGuBetter
         public Dictionary<String, Color> SetupColors() {
             Random rand = new Random();
             Dictionary<String, Color > nameColor = new Dictionary<string, Color>();
-            foreach (string name in o1["participants"]) { 
+            foreach (var name in o1["participants"]) { 
                 Color col = Color.FromArgb(rand.Next(0, 256), rand.Next(0, 256), rand.Next(0, 256));
-                nameColor.Add(name, col);   
+                nameColor.Add(name["name"].ToString(),col);   
             }
             return nameColor;
 
@@ -296,7 +296,7 @@ namespace ChatGuBetter
 
         private void EmojiBtn_Click(object sender, EventArgs e)
         {
-            Form2 f2 = new Form2(o1);
+            Form2 f2 = new Form2(o1,path);
             this.Hide();
             f2.ShowDialog();
             this.Dispose();
@@ -372,7 +372,7 @@ namespace ChatGuBetter
         }
 
         private void DisplayImageBtn_Click(object sender, EventArgs e) {
-            ImageDisplay ImD = new ImageDisplay(o1);
+            ImageDisplay ImD = new ImageDisplay(o1,path);
             this.Hide();
             ImD.ShowDialog();
             this.Close();

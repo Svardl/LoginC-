@@ -12,14 +12,20 @@ using System.Windows.Forms;
 
 namespace ChatGuBetter {
     public partial class ImageDisplay : Form {
-        string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
+        string path;
         int height = Screen.PrimaryScreen.WorkingArea.Height;
+        volatile int count = 0;
+        volatile bool canPass = true;
+        volatile bool manual = false;
 
-        public ImageDisplay(JObject o1) {
+        public ImageDisplay(JObject o1,string path) {
             InitializeComponent();
             int width = Screen.PrimaryScreen.WorkingArea.Width;
             int height = Screen.PrimaryScreen.WorkingArea.Height;
-            
+            this.path = path;
+
+            this.KeyDown += new KeyEventHandler(KeyDownfunc);
+
             SentFromLabel.Visible = false;
             StartImageDisplay(o1);
         }
@@ -40,26 +46,69 @@ namespace ChatGuBetter {
             imStore = imStore.OrderBy(x => Guid.NewGuid()).ToList();
 
             SentFromLabel.Visible = true;
-            foreach (string[] nameImage in imStore) {
+            while (count < imStore.Count) {
 
-                SentFromLabel.Text = nameImage[0];
-                string imPath = path + nameImage[1];
+                SentFromLabel.Text = imStore[count][0];
+                string imPath = path + imStore[count][1];
                 System.Drawing.Image img = System.Drawing.Image.FromFile(imPath);
 
-                if (img.Height > height) {
+                double currHeight = img.Height;
+                double currWidth = img.Width;
 
-                    DisplayBox.Width = Convert.ToInt32(img.Width / 1.4);
-                    DisplayBox.Height = Convert.ToInt32(img.Width / 1.4);
+                while (currHeight > height-30) {
+                    currHeight /= 1.2;
+                    currWidth /= 1.2;
                 }
-                else {
-                    DisplayBox.Width = img.Width;
-                    DisplayBox.Height = img.Height;
-                }
+                
+                DisplayBox.Width = (int)currWidth;
+                DisplayBox.Height = (int)currHeight;
                 DisplayBox.Image = img;
+             
+
                 await Task.Delay(4000);
 
+                incrementCount(false);
+
+                if (count < 0)
+                    count = imStore.Count;
+                else if (count > imStore.Count)
+                    count = 0;
 
             }
+        }
+
+        public void manualmode() { 
+        
+        }
+        public void KeyDownfunc(Object o, KeyEventArgs e) {
+
+
+            if (e.KeyCode == Keys.Space) {
+
+                if (canPass)
+                    MessageBox.Show("Paused");
+                else
+                    MessageBox.Show("Unpaused");
+                canPass = !canPass;
+            }
+            else if (e.KeyCode == Keys.Left) {
+                count--;
+                canPass = false;
+            }
+            else if (e.KeyCode == Keys.Right) {
+                count++;
+                canPass = false;
+
+            }
+
+        }
+        public void incrementCount(bool valid) {
+
+
+            if (valid || canPass) {
+                count++;
+            }
+            
         }
     }
 }
