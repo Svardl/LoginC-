@@ -18,10 +18,10 @@ namespace ChatGuBetter
 {
     public partial class Form1 : Form{
 
-        //String path = "D:\\AllianceDivision\\Big-search\\";
-        string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
-        //JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\Big-search\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
-        JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\ChatguiResources\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
+        String path = "D:\\AllianceDivision\\Big-search\\";
+        //string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
+        JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\Big-search\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
+        //JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\ChatguiResources\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
         Dictionary<string, List<String>> mainDict;
         Dictionary<string, List<int>> NameId;
 

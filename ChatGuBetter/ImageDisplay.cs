@@ -68,7 +68,6 @@ namespace ChatGuBetter {
                 await Task.Delay(4000);
 
                 incrementCount(false);
-
                 if (count < 0)
                     count = imStore.Count;
                 else if (count > imStore.Count)
@@ -100,7 +99,6 @@ namespace ChatGuBetter {
                 canPass = false;
 
             }
-
         }
         public void incrementCount(bool valid) {
 
@@ -108,7 +106,10 @@ namespace ChatGuBetter {
             if (valid || canPass) {
                 count++;
             }
-            
+            else {
+                canPass = true;
+            }
+
         }
     }
 }
