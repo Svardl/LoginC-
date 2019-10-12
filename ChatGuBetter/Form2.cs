@@ -118,6 +118,8 @@ namespace ChatGuBetter {
                 DisplayMessage(MsgObList[index], selectedName.Equals("NoName"));
                 // DisplayReactions(selectedEm, msgList[index]);
                 DisplayReactions2(MsgObList[index]);
+                PrintDate(MsgObList[index], ShowDateBox.Checked);
+
                 var temp = msgList[index];
                 msgList[index] = msgList[j];
                 msgList[j] = temp;
@@ -130,9 +132,19 @@ namespace ChatGuBetter {
             }
         }
 
+        public void PrintDate(JToken msgObj, bool show) {
+            if (show) {
+                string Date = Form1.TimespampConverter(Convert.ToDouble(msgObj["timestamp_ms"].ToString())).ToString();
+                OutPanel.Controls.Add(new Label() { Text = Date, AutoSize = true, ForeColor = Color.Aquamarine, Font = new Font(Font.Name, 8)}) ;
+            }
+            OutPanel.Controls.Add(new Label() {Tag="Empty"});
+
+           
+
+
+        }
         public void DisplayReactions2(JToken msgObj) {
             if (msgObj["reactions"] == null) { 
-                 OutPanel.Controls.Add((new Label()));
                  return;
         }
 
@@ -154,7 +166,6 @@ namespace ChatGuBetter {
                 lab.Text += key + ": " + amount[key] + "         ";
             }
             OutPanel.Controls.Add(lab);
-            OutPanel.Controls.Add((new Label()));
 
         } 
         
@@ -168,7 +179,7 @@ namespace ChatGuBetter {
                 lab.Text += selectedEm[i] + ": " + emojiCount[i] + "         ";
             }
             OutPanel.Controls.Add(lab);
-            OutPanel.Controls.Add((new Label()));
+            
         
         }
         public void DisplayMessage(JToken msgObj, Boolean doAuthor, Boolean color=false){
@@ -221,7 +232,13 @@ namespace ChatGuBetter {
                     photos.Tag = (int)msgObj["Id"];
                 }
             }
+
+            if (ShowDateBox.Checked) {
+                
+            
+            }
         }
+        
         private void Label_Click(object sender, EventArgs e) {
             Form1.ClearPanel(OutPanel);
             dynamic msg = null;
@@ -235,6 +252,7 @@ namespace ChatGuBetter {
             for (int i = index + 15; i >= index - 15; i--) {
                 DisplayMessage(o1["messages"][i], true, i==index);
                 DisplayReactions2(o1["messages"][i]);
+                PrintDate(o1["messages"][i], ShowDateBox.Checked);
             }
         }
 
@@ -328,6 +346,49 @@ namespace ChatGuBetter {
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
 
+        }
+
+        private void ShowDateBox_CheckedChanged(object sender, EventArgs e) {
+
+            if (ShowDateBox.Checked) {
+                string date = "No date";
+                for (int i = 0; i < OutPanel.Controls.Count; i++) {
+
+                    if (OutPanel.Controls[i] is PictureBox img) {
+                        int index = (int)img.Tag;
+                        double timestamp = Convert.ToDouble(o1["messages"][index]["timestamp_ms"].ToString());
+                        date = Form1.TimespampConverter(timestamp).ToString();
+                    }
+
+
+                    if (OutPanel.Controls[i] is Label empyLabel) {
+                        if (empyLabel.Tag != null && !empyLabel.Tag.Equals("Empty")) {
+                            int index = (int)empyLabel.Tag;
+                            double timestamp = Convert.ToDouble(o1["messages"][index]["timestamp_ms"].ToString());
+                            date = Form1.TimespampConverter(timestamp).ToString();
+                        }
+
+                        if (empyLabel.Tag != null && empyLabel.Tag.Equals("Empty")) {
+                            Label dateLab = new Label() { Text = date, ForeColor = Color.Aquamarine };
+
+                            OutPanel.Controls.Add(dateLab);
+                            OutPanel.Controls.SetChildIndex(dateLab, i++);
+                        }
+
+                    }
+
+                }
+            }
+            else {
+                for (int i = 0; i < OutPanel.Controls.Count; i++) {
+                    if (OutPanel.Controls[i] is Label lab) {
+                        if (lab.ForeColor == Color.Aquamarine) {
+                            OutPanel.Controls.Remove(lab);
+                        }
+                    }
+                }
+            
+            }
         }
     }
 }

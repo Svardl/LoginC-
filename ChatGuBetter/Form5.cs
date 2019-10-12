@@ -17,20 +17,15 @@ namespace ChatGuBetter {
         volatile bool clicked = false;
         ComboBox cb;
 
-
-
-
         public GameForm(JObject o1, string path) {
             this.o1 = o1;
             this.path = path;
             InitializeComponent();
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
 
             int playerCount = Convert.ToInt32(comboBox1.SelectedItem);
-
             for (int i = 0; i < playerCount; i++) {
 
                 TextBox temp = new TextBox();
@@ -45,22 +40,20 @@ namespace ChatGuBetter {
             MainPanel.Controls.Add(goBtn);
         }
         public void GoBtnClick(Object obj, EventArgs e) {
-
             Dictionary<String, int> PlayerScore = new Dictionary<string, int>();
 
             for (int i =0; i< MainPanel.Controls.Count-1; i++) {
                 string name = MainPanel.Controls[i].Text;
                 PlayerScore.Add(name, 0);
 
-
                 Label score = new Label() { Text = name + ": 0", AutoSize = true, Font = new System.Drawing.Font(Font.Name, 12) };
                 ScorePanel.Controls.Add(score);
                 ScorePanel.Controls.Add(new Label());
             }
             Form1.ClearPanel(MainPanel);
+            comboBox1.Enabled = false;
 
             PlayGame(PlayerScore);
-        
         }
         public async void PlayGame(Dictionary<string, int> PlayerScore) {
             Random rand = new Random();
@@ -73,7 +66,8 @@ namespace ChatGuBetter {
            
             LeftSidePanel.Controls.Add(guessBtn);
 
-            while (!PlayerScore.ContainsValue(10)) {
+            int winning = 5;
+            while (!PlayerScore.ContainsValue(winning)) {
                 int index = 0;
                 foreach (string name in PlayerScore.Keys.ToList()) {
 
@@ -91,7 +85,7 @@ namespace ChatGuBetter {
                     MainPanel.Controls.Add(temp2);
 
                     while (!clicked) {
-                        await Task.Delay(2000);
+                        await Task.Delay(1500);
                     }
                     clicked = false;
 
@@ -99,17 +93,31 @@ namespace ChatGuBetter {
                         UpdateScorePanel(index);
                         MessageBox.Show("Correct!");
                         PlayerScore[name]++;
-
                     }
                     else {
                         MessageBox.Show("Incorrect! " + authorMsg[0] + " said it");
                     }
                     Form1.ClearPanel(MainPanel);
                     ScorePanel.Controls[index * 2].ForeColor = Color.Black;
-
                     index++;
                 }
             }
+            //When someone has won
+            Form1.ClearPanel(MainPanel);
+            Form1.ClearPanel(LeftSidePanel);
+            string winningText = "Congratulations ";
+            int count = 0;
+            foreach (String name in PlayerScore.Keys) {
+                if (PlayerScore[name] == winning) {
+                    if (count == 0)
+                        winningText += name;
+                    else
+                        winningText+= "and " + name;
+                    count++;
+                }
+            }
+            Label win = new Label() {Text=winningText, AutoSize=true, Font = new Font(Font.Name, 14)};
+            MainPanel.Controls.Add(win);
         }
 
         public void UpdateScorePanel(int index) {
@@ -122,14 +130,12 @@ namespace ChatGuBetter {
             ScorePanel.Controls[index].Text = scoreText;
         }
         public void CreateComboBoxed() {
-            cb = new ComboBox();
-            cb.DropDownWidth = 250;
-            cb.Width = 200;
+            cb = new ComboBox {DropDownWidth = 250, Width = 200};
+            cb.Font = new Font(cb.Font.Name, 12);
 
             foreach (JToken participants in o1["participants"]) {
                 string name = participants["name"].ToString();
                 cb.Items.Add(name);
-                cb.Font = new Font(cb.Font.Name, 12);
                 LeftSidePanel.Controls.Add(cb);
             }
         }
@@ -137,7 +143,6 @@ namespace ChatGuBetter {
 
             if(cb.SelectedItem !=null)
                 clicked = true;
-            
         }
         public String[] GetRandAuthroMsg(Random rand) {
 
@@ -149,11 +154,18 @@ namespace ChatGuBetter {
             
             String[] result = new String[2];
             result[0] = o1["messages"][index]["sender_name"].ToString();
-
             string test = o1["messages"][index].ToString();
             result[1] = o1["messages"][index]["content"].ToString();
 
             return result;
+        }
+
+        private void RestartBtn_Click(object sender, EventArgs e) {
+            GameForm f2 = new GameForm(o1, path);
+            this.Hide();
+            f2.ShowDialog();
+            this.Dispose();
+            this.Close();
         }
     }
 }

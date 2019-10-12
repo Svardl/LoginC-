@@ -34,7 +34,6 @@ C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.Form1.resou
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.Form2.resources
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.Properties.Resources.resources
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.csproj.GenerateResource.cache
-C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.csproj.CoreCompileInputs.cache
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.csproj.CopyComplete
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.exe
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.pdb
@@ -55,3 +54,4 @@ C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.VideoForm.
 C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.ImageDisplay.resources
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.ImageDisplay.resources
 C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.GameForm.resources
+C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.GameForm.resources

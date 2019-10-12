@@ -31,9 +31,10 @@
             // DisplayBox
             // 
             this.DisplayBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.DisplayBox.Location = new System.Drawing.Point(40, 94);
+            this.DisplayBox.Location = new System.Drawing.Point(36, 75);
+            this.DisplayBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DisplayBox.Name = "DisplayBox";
-            this.DisplayBox.Size = new System.Drawing.Size(754, 354);
+            this.DisplayBox.Size = new System.Drawing.Size(670, 283);
             this.DisplayBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.DisplayBox.TabIndex = 1;
             this.DisplayBox.TabStop = false;
@@ -43,19 +44,21 @@
             this.SentFromLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SentFromLabel.AutoSize = true;
             this.SentFromLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SentFromLabel.Location = new System.Drawing.Point(210, 9);
+            this.SentFromLabel.Location = new System.Drawing.Point(187, 7);
             this.SentFromLabel.Name = "SentFromLabel";
-            this.SentFromLabel.Size = new System.Drawing.Size(357, 52);
+            this.SentFromLabel.Size = new System.Drawing.Size(303, 42);
             this.SentFromLabel.TabIndex = 0;
             this.SentFromLabel.Text = "Sent from person";
             // 
             // ImageDisplay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.ClientSize = new System.Drawing.Size(711, 360);
             this.Controls.Add(this.DisplayBox);
             this.Controls.Add(this.SentFromLabel);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ImageDisplay";
             this.Text = "ImageDisplay";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

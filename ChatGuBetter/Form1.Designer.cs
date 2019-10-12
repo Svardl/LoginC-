@@ -45,20 +45,18 @@
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(267, 182);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox1.Location = new System.Drawing.Point(237, 146);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(309, 31);
+            this.textBox1.Size = new System.Drawing.Size(275, 27);
             this.textBox1.TabIndex = 0;
             // 
             // SearchBtn
             // 
             this.SearchBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchBtn.Location = new System.Drawing.Point(611, 178);
-            this.SearchBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SearchBtn.Location = new System.Drawing.Point(543, 142);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(99, 45);
+            this.SearchBtn.Size = new System.Drawing.Size(88, 36);
             this.SearchBtn.TabIndex = 1;
             this.SearchBtn.Text = "Search";
             this.SearchBtn.UseVisualStyleBackColor = true;
@@ -69,19 +67,18 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(259, 64);
+            this.label1.Location = new System.Drawing.Point(230, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(319, 46);
+            this.label1.Size = new System.Drawing.Size(263, 38);
             this.label1.TabIndex = 2;
             this.label1.Text = "Message Search";
             // 
             // ButtonPanel
             // 
             this.ButtonPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ButtonPanel.Location = new System.Drawing.Point(10, 230);
-            this.ButtonPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonPanel.Location = new System.Drawing.Point(9, 184);
             this.ButtonPanel.Name = "ButtonPanel";
-            this.ButtonPanel.Size = new System.Drawing.Size(917, 104);
+            this.ButtonPanel.Size = new System.Drawing.Size(815, 83);
             this.ButtonPanel.TabIndex = 3;
             // 
             // BigPanel
@@ -90,11 +87,11 @@
             this.BigPanel.AutoScroll = true;
             this.BigPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BigPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.BigPanel.Location = new System.Drawing.Point(3, 409);
-            this.BigPanel.Margin = new System.Windows.Forms.Padding(3, 25, 3, 25);
+            this.BigPanel.Location = new System.Drawing.Point(3, 327);
+            this.BigPanel.Margin = new System.Windows.Forms.Padding(3, 20, 3, 20);
             this.BigPanel.Name = "BigPanel";
-            this.BigPanel.Padding = new System.Windows.Forms.Padding(0, 0, 11, 0);
-            this.BigPanel.Size = new System.Drawing.Size(924, 571);
+            this.BigPanel.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.BigPanel.Size = new System.Drawing.Size(821, 457);
             this.BigPanel.TabIndex = 4;
             this.BigPanel.WrapContents = false;
             // 
@@ -103,9 +100,9 @@
             this.NowReadingLab.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.NowReadingLab.AutoSize = true;
             this.NowReadingLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NowReadingLab.Location = new System.Drawing.Point(127, 338);
+            this.NowReadingLab.Location = new System.Drawing.Point(113, 270);
             this.NowReadingLab.Name = "NowReadingLab";
-            this.NowReadingLab.Size = new System.Drawing.Size(583, 40);
+            this.NowReadingLab.Size = new System.Drawing.Size(481, 36);
             this.NowReadingLab.TabIndex = 5;
             this.NowReadingLab.Text = "Now reading messages from Niclas";
             this.NowReadingLab.Click += new System.EventHandler(this.NowReadingLab_Click);
@@ -114,10 +111,10 @@
             // 
             this.EmojiBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmojiBtn.ForeColor = System.Drawing.Color.Green;
-            this.EmojiBtn.Location = new System.Drawing.Point(44, 45);
+            this.EmojiBtn.Location = new System.Drawing.Point(24, 26);
             this.EmojiBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EmojiBtn.Name = "EmojiBtn";
-            this.EmojiBtn.Size = new System.Drawing.Size(112, 45);
+            this.EmojiBtn.Size = new System.Drawing.Size(136, 41);
             this.EmojiBtn.TabIndex = 6;
             this.EmojiBtn.Text = "Reactions";
             this.EmojiBtn.UseVisualStyleBackColor = true;
@@ -127,10 +124,9 @@
             // 
             this.SearchAll.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SearchAll.AutoSize = true;
-            this.SearchAll.Location = new System.Drawing.Point(788, 84);
-            this.SearchAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.SearchAll.Location = new System.Drawing.Point(700, 67);
             this.SearchAll.Name = "SearchAll";
-            this.SearchAll.Size = new System.Drawing.Size(107, 24);
+            this.SearchAll.Size = new System.Drawing.Size(94, 21);
             this.SearchAll.TabIndex = 7;
             this.SearchAll.Text = "Search All";
             this.SearchAll.UseVisualStyleBackColor = true;
@@ -140,10 +136,9 @@
             // 
             this.ShowDatesCheck.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ShowDatesCheck.AutoSize = true;
-            this.ShowDatesCheck.Location = new System.Drawing.Point(764, 356);
-            this.ShowDatesCheck.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ShowDatesCheck.Location = new System.Drawing.Point(679, 285);
             this.ShowDatesCheck.Name = "ShowDatesCheck";
-            this.ShowDatesCheck.Size = new System.Drawing.Size(122, 24);
+            this.ShowDatesCheck.Size = new System.Drawing.Size(105, 21);
             this.ShowDatesCheck.TabIndex = 8;
             this.ShowDatesCheck.Text = "Show Dates";
             this.ShowDatesCheck.UseVisualStyleBackColor = true;
@@ -151,9 +146,10 @@
             // 
             // DisplayImageBtn
             // 
-            this.DisplayImageBtn.Location = new System.Drawing.Point(44, 144);
+            this.DisplayImageBtn.Location = new System.Drawing.Point(22, 82);
+            this.DisplayImageBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DisplayImageBtn.Name = "DisplayImageBtn";
-            this.DisplayImageBtn.Size = new System.Drawing.Size(154, 44);
+            this.DisplayImageBtn.Size = new System.Drawing.Size(137, 35);
             this.DisplayImageBtn.TabIndex = 9;
             this.DisplayImageBtn.Text = "Display Image";
             this.DisplayImageBtn.UseVisualStyleBackColor = true;
@@ -161,9 +157,10 @@
             // 
             // GameBtn
             // 
-            this.GameBtn.Location = new System.Drawing.Point(764, 12);
+            this.GameBtn.Location = new System.Drawing.Point(22, 138);
+            this.GameBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.GameBtn.Name = "GameBtn";
-            this.GameBtn.Size = new System.Drawing.Size(153, 46);
+            this.GameBtn.Size = new System.Drawing.Size(136, 37);
             this.GameBtn.TabIndex = 10;
             this.GameBtn.Text = "Play Game";
             this.GameBtn.UseVisualStyleBackColor = true;
@@ -171,11 +168,11 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(930, 988);
+            this.ClientSize = new System.Drawing.Size(827, 790);
             this.Controls.Add(this.GameBtn);
             this.Controls.Add(this.DisplayImageBtn);
             this.Controls.Add(this.ShowDatesCheck);
@@ -187,7 +184,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SearchBtn);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

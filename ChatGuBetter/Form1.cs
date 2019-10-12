@@ -21,11 +21,11 @@ namespace ChatGuBetter
 {
     public partial class Form1 : Form{
        
-        //String path = "D:\\AllianceDivision\\Big-search\\";
-        string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
-        //JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\Big-search\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
+        String path = "D:\\AllianceDivision\\Big-search\\";
+        //string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
+        JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\Big-search\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
        // JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\ChatguiResources\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
-        JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\ChatguiResources\\messages\\inbox\\Combined\\message_1.json"));
+        //JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\ChatguiResources\\messages\\inbox\\Combined\\message_1.json"));
         Dictionary<string, List<String>> mainDict;
         Dictionary<string, List<int>> NameId;
 
@@ -200,6 +200,7 @@ namespace ChatGuBetter
 
                     string msg = msgObj["content"].ToString();
                     Label tempName = new Label() { Text = name + ":", AutoSize = true, Font = new System.Drawing.Font(Font.Name, 10) };
+                    tempName.Font = new Font(tempName.Font, FontStyle.Bold);
                     Label2 tempMsg = new Label2 { Text = msg, AutoSize = true, Font = new System.Drawing.Font(Font.Name, 10) };
                     tempMsg.Set(i);
 
@@ -342,7 +343,7 @@ namespace ChatGuBetter
             }
             return sorted;
         }
-        public DateTime TimespampConverter(double timestamp ) {
+        public static DateTime TimespampConverter(double timestamp ) {
 
             timestamp /= 1000;
             DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
@@ -372,7 +373,6 @@ namespace ChatGuBetter
                         BigPanel.Controls.SetChildIndex(dateLab, i + 1);
 
                     }
-                    
                 }
             }
             else {
