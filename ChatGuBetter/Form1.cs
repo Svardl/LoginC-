@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,18 +11,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using System.Web;
 using MessageBox = System.Windows.Forms.MessageBox;
+using System.Web.Hosting;
 
 
 //TODO: Handle links and implement date button
 namespace ChatGuBetter
 {
     public partial class Form1 : Form{
-
-        String path = "D:\\AllianceDivision\\Big-search\\";
-        //string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
-        JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\Big-search\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
-        //JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\ChatguiResources\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
+       
+        //String path = "D:\\AllianceDivision\\Big-search\\";
+        string path = "C:\\Users\\Svardl\\Documents\\ChatguiResources\\";
+        //JObject o1 = JObject.Parse(File.ReadAllText("D:\\AllianceDivision\\Big-search\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
+       // JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\ChatguiResources\\messages\\inbox\\AllianceDivision_5Hy8r-YQIw\\message_1.json"));
+        JObject o1 = JObject.Parse(File.ReadAllText("C:\\Users\\Svardl\\Documents\\ChatguiResources\\messages\\inbox\\Combined\\message_1.json"));
         Dictionary<string, List<String>> mainDict;
         Dictionary<string, List<int>> NameId;
 
@@ -39,8 +43,10 @@ namespace ChatGuBetter
             NowReadingLab.Visible = false;
             CreateButtons();
             colorMap = SetupColors();
+          
         }
 
+      
         public Dictionary<String, Color> SetupColors() {
             Random rand = new Random();
             Dictionary<String, Color > nameColor = new Dictionary<string, Color>();
@@ -52,11 +58,11 @@ namespace ChatGuBetter
 
         }
         public void CreateButtons() {
-        var participant = o1["participants"];
-        foreach (var person in participant) {
-            ButtonPanel.Controls.Add(new RadioButton() { Text = person["name"].ToString(), AutoSize = true });
-        }
-        ButtonPanel.Controls.Add(new RadioButton() { Text = "None", AutoSize = true });
+            var participant = o1["participants"];
+            foreach (var person in participant) {
+                ButtonPanel.Controls.Add(new RadioButton() { Text = person["name"].ToString(), AutoSize = true });
+            }
+            ButtonPanel.Controls.Add(new RadioButton() { Text = "None", AutoSize = true });
         }
         public void DoSearch(String term, string selected=null) {
             if (term  == "" && !SearchAll.Checked)
@@ -171,6 +177,15 @@ namespace ChatGuBetter
             int index = LabMsg.GetId();
 
             Label scrollTarget = null;
+
+            int orgIndex = index;
+            if (index - 15 < 0) {
+                index = 15;
+            }
+            else if (index+15 > o1["messages"].Count()-1) {
+                index = o1["messages"].Count() - 16;
+            }
+
             for (int i = index + 15; i >= index - 15; i--){
                 var msgObj = o1["messages"][i];
                 string name = msgObj["sender_name"].ToString();
@@ -181,8 +196,8 @@ namespace ChatGuBetter
                 timeLab.Text = TimespampConverter(time).ToString();
                 timeLab.ForeColor = System.Drawing.Color.Aquamarine;
 
-                if (msgObj.ToString().Contains("content"))
-                {
+                if (msgObj.ToString().Contains("content")){ 
+
                     string msg = msgObj["content"].ToString();
                     Label tempName = new Label() { Text = name + ":", AutoSize = true, Font = new System.Drawing.Font(Font.Name, 10) };
                     Label2 tempMsg = new Label2 { Text = msg, AutoSize = true, Font = new System.Drawing.Font(Font.Name, 10) };
@@ -191,11 +206,10 @@ namespace ChatGuBetter
                     string Date = TimespampConverter(Convert.ToDouble(msgObj["timestamp_ms"].ToString())).ToString();
                     tempMsg.SetDate(Date);
                     tempMsg.DoubleClick += new EventHandler(ContextMsg_Click);
-                    if (i == index){
+                    if (i == orgIndex){
                         tempName.ForeColor = System.Drawing.Color.Red;
                         tempMsg.ForeColor = System.Drawing.Color.Red;
                         scrollTarget = tempMsg;
-
                     }
                     BigPanel.Controls.Add(tempName);
                     BigPanel.Controls.Add(tempMsg);
@@ -378,6 +392,14 @@ namespace ChatGuBetter
             this.Close();
             this.Dispose();
 
+        }
+
+        private void GameBtn_Click(object sender, EventArgs e) {
+            GameForm ImD = new GameForm(o1, path);
+            this.Hide();
+            ImD.ShowDialog();
+            this.Close();
+            this.Dispose();
         }
     }
 

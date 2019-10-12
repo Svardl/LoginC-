@@ -17,6 +17,7 @@ namespace ChatGuBetter {
         volatile int count = 0;
         volatile bool canPass = true;
         volatile bool manual = false;
+        List<string[]> imStore;
 
         public ImageDisplay(JObject o1,string path) {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace ChatGuBetter {
         }
         async public void StartImageDisplay(JObject o1) {
 
-            List<string[]> imStore = new List<string[]>();
+            imStore = new List<string[]>();
             foreach (JToken msgObj in o1["messages"]) {
                 if (msgObj["photos"] != null || msgObj["gifs"] != null) {
                     string name = msgObj["sender_name"].ToString();
@@ -42,41 +43,44 @@ namespace ChatGuBetter {
                     }
                 }
             }
-
             imStore = imStore.OrderBy(x => Guid.NewGuid()).ToList();
-
             SentFromLabel.Visible = true;
+
             while (count < imStore.Count) {
-
-                SentFromLabel.Text = imStore[count][0];
-                string imPath = path + imStore[count][1];
-                System.Drawing.Image img = System.Drawing.Image.FromFile(imPath);
-
-                double currHeight = img.Height;
-                double currWidth = img.Width;
-
-                while (currHeight > height-30) {
-                    currHeight /= 1.2;
-                    currWidth /= 1.2;
-                }
-                
-                DisplayBox.Width = (int)currWidth;
-                DisplayBox.Height = (int)currHeight;
-                DisplayBox.Image = img;
-             
-
-                await Task.Delay(4000);
-
+                showImage();
+                await Task.Delay(8000);
                 incrementCount(false);
-                if (count < 0)
-                    count = imStore.Count;
-                else if (count > imStore.Count)
-                    count = 0;
 
             }
         }
 
-        public void manualmode() { 
+        public void showImage() {
+
+            if (count < 0)
+                count = imStore.Count-1;
+            else if (count > imStore.Count-1)
+                count = 0;
+
+            SentFromLabel.Text = imStore[count][0];
+            string imPath = path + imStore[count][1];
+            System.Drawing.Image img = System.Drawing.Image.FromFile(imPath);
+
+            double currHeight = img.Height;
+            double currWidth = img.Width;
+
+            while (currHeight > height - 30) {
+                currHeight /= 1.2;
+                currWidth /= 1.2;
+            }
+
+            DisplayBox.Width = (int)currWidth;
+            DisplayBox.Height = (int)currHeight;
+            DisplayBox.Image = img;
+
+          
+            
+        }
+        public void manualmode(int added) { 
         
         }
         public void KeyDownfunc(Object o, KeyEventArgs e) {
@@ -84,32 +88,31 @@ namespace ChatGuBetter {
 
             if (e.KeyCode == Keys.Space) {
 
-                if (canPass)
+                if (canPass) {
                     MessageBox.Show("Paused");
+                }
                 else
                     MessageBox.Show("Unpaused");
                 canPass = !canPass;
             }
             else if (e.KeyCode == Keys.Left) {
+                canPass = false;
                 count--;
-                canPass = false;
+                showImage();
+                
             }
-            else if (e.KeyCode == Keys.Right) {
-                count++;
+            else if (e.KeyCode == Keys.Right) {     
                 canPass = false;
+                count++;
+                showImage();
 
             }
         }
         public void incrementCount(bool valid) {
 
-
             if (valid || canPass) {
                 count++;
             }
-            else {
-                canPass = true;
-            }
-
         }
     }
 }

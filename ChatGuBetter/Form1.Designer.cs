@@ -38,6 +38,7 @@
             this.SearchAll = new System.Windows.Forms.CheckBox();
             this.ShowDatesCheck = new System.Windows.Forms.CheckBox();
             this.DisplayImageBtn = new System.Windows.Forms.Button();
+            this.GameBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // textBox1
@@ -158,6 +159,16 @@
             this.DisplayImageBtn.UseVisualStyleBackColor = true;
             this.DisplayImageBtn.Click += new System.EventHandler(this.DisplayImageBtn_Click);
             // 
+            // GameBtn
+            // 
+            this.GameBtn.Location = new System.Drawing.Point(764, 12);
+            this.GameBtn.Name = "GameBtn";
+            this.GameBtn.Size = new System.Drawing.Size(153, 46);
+            this.GameBtn.TabIndex = 10;
+            this.GameBtn.Text = "Play Game";
+            this.GameBtn.UseVisualStyleBackColor = true;
+            this.GameBtn.Click += new System.EventHandler(this.GameBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -165,6 +176,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(930, 988);
+            this.Controls.Add(this.GameBtn);
             this.Controls.Add(this.DisplayImageBtn);
             this.Controls.Add(this.ShowDatesCheck);
             this.Controls.Add(this.SearchAll);
@@ -197,6 +209,7 @@
         private System.Windows.Forms.CheckBox SearchAll;
         private System.Windows.Forms.CheckBox ShowDatesCheck;
         private System.Windows.Forms.Button DisplayImageBtn;
+        private System.Windows.Forms.Button GameBtn;
     }
 }
 

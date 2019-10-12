@@ -54,3 +54,4 @@ C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.PictureFor
 C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.VideoForm.resources
 C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.ImageDisplay.resources
 C:\Users\nirrr\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.ImageDisplay.resources
+C:\Users\Svardl\Documents\LoginC-\ChatGuBetter\obj\Debug\ChatGuBetter.GameForm.resources
