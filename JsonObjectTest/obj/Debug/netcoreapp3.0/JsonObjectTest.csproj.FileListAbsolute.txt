@@ -11,3 +11,16 @@ C:\Users\nirrr\source\repos\JsonObjectTest\bin\Debug\netcoreapp3.0\Newtonsoft.Js
 C:\Users\nirrr\source\repos\JsonObjectTest\obj\Debug\netcoreapp3.0\JsonObjectTest.csproj.CopyComplete
 C:\Users\nirrr\source\repos\JsonObjectTest\obj\Debug\netcoreapp3.0\JsonObjectTest.dll
 C:\Users\nirrr\source\repos\JsonObjectTest\obj\Debug\netcoreapp3.0\JsonObjectTest.pdb
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\bin\Debug\netcoreapp3.0\JsonObjectTest.exe
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\bin\Debug\netcoreapp3.0\JsonObjectTest.deps.json
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\bin\Debug\netcoreapp3.0\JsonObjectTest.runtimeconfig.json
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\bin\Debug\netcoreapp3.0\JsonObjectTest.runtimeconfig.dev.json
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\bin\Debug\netcoreapp3.0\JsonObjectTest.dll
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\bin\Debug\netcoreapp3.0\JsonObjectTest.pdb
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\obj\Debug\netcoreapp3.0\JsonObjectTest.csprojAssemblyReference.cache
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\obj\Debug\netcoreapp3.0\JsonObjectTest.AssemblyInfoInputs.cache
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\obj\Debug\netcoreapp3.0\JsonObjectTest.AssemblyInfo.cs
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\obj\Debug\netcoreapp3.0\JsonObjectTest.csproj.CopyComplete
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\obj\Debug\netcoreapp3.0\JsonObjectTest.dll
+C:\Users\nisv\Documents\LoginC-\JsonObjectTest\obj\Debug\netcoreapp3.0\JsonObjectTest.pdb

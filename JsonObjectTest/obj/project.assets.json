@@ -52,25 +52,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nirrr\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\nisv\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nirrr\\source\\repos\\JsonObjectTest\\JsonObjectTest.csproj",
+      "projectUniqueName": "C:\\Users\\nisv\\Documents\\LoginC-\\JsonObjectTest\\JsonObjectTest.csproj",
       "projectName": "JsonObjectTest",
-      "projectPath": "C:\\Users\\nirrr\\source\\repos\\JsonObjectTest\\JsonObjectTest.csproj",
-      "packagesPath": "C:\\Users\\nirrr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nirrr\\source\\repos\\JsonObjectTest\\obj\\",
+      "projectPath": "C:\\Users\\nisv\\Documents\\LoginC-\\JsonObjectTest\\JsonObjectTest.csproj",
+      "packagesPath": "C:\\Users\\nisv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nisv\\Documents\\LoginC-\\JsonObjectTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\nirrr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nisv\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -110,12 +108,30 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.0.1, 3.0.1]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.0.1, 3.0.1]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.0.0, 3.0.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.0.0, 3.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

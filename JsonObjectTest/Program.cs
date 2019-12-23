@@ -16,8 +16,15 @@ namespace MessageObj {
         [JsonProperty("sender_name")]
         public string SenderName { get; set; }
 
+        private long _TimestampMs;
         [JsonProperty("timestamp_ms")]
-        public long TimestampMs { get; set; }
+        public long TimestampMs {
+            get { return _TimestampMs; }
+            set { MessageReceivedTime = TimespampConverter(value); _TimestampMs=value; }
+        }
+
+        public DateTime MessageReceivedTime { get; set; }
+           
 
         [JsonProperty("content", NullValueHandling = NullValueHandling.Ignore)]
         public string Content { get; set; }
@@ -45,6 +52,18 @@ namespace MessageObj {
 
         [JsonProperty("sticker", NullValueHandling = NullValueHandling.Ignore)]
         public Sticker Sticker { get; set; }
+
+        public static DateTime TimespampConverter(double timestamp) {
+
+            timestamp /= 1000;
+            DateTime unixStart = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+            long unixTimeStampInTicks = (long)(timestamp * TimeSpan.TicksPerSecond);
+            return new DateTime(unixStart.Ticks + unixTimeStampInTicks, System.DateTimeKind.Utc);
+
+
+        }
+
+
     }
 
     public partial class Sticker {
